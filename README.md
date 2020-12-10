@@ -9,22 +9,22 @@ This API is built in NodeJS and ExpressJS to find complete recipe of most of the
 3. Create a SQLite3 database using command - **sqlite3 recipe.sqlite** (Name anything for your database)
 4. Create a table to hold recipe details with below query - 
 ```sql
-    CREATE TABLE recipe (
-       RecipeName TEXT,
-       TranslatedRecipeName TEXT,
-       Ingredients TEXT,
-       TranslatedIngredients TEXT,
-       PrepTimeInMins INTEGER,
-       CookTimeInMins INTEGER,
-       TotalTimeInMins INTEGER,
-       Servings TEXT,
-       Cuisine TEXT,
-       Course TEXT,
-       Diet TEXT,
-       Instructions TEXT,
-       TranslatedInstructions TEXT,
-       URL TEXT
-    );
+CREATE TABLE recipe (
+   RecipeName TEXT,
+   TranslatedRecipeName TEXT,
+   Ingredients TEXT,
+   TranslatedIngredients TEXT,
+   PrepTimeInMins INTEGER,
+   CookTimeInMins INTEGER,
+   TotalTimeInMins INTEGER,
+   Servings TEXT,
+   Cuisine TEXT,
+   Course TEXT,
+   Diet TEXT,
+   Instructions TEXT,
+   TranslatedInstructions TEXT,
+   URL TEXT
+);
 ```
 5. Import the data of CSV file to SQLite3 database using below query in SQLite3 database - 
 ```sql
