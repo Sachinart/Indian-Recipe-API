@@ -5,7 +5,7 @@ This API is built in NodeJS and ExpressJS to find complete recipe of most of the
 # How to Use?
 
 1. To run this API, clone this repository in your server or download and extract the zip in server path.
-2. Run the command in terminal - **npm install and npm i sqlite3**
+2. Run the commands in terminal - **npm install** followed by **npm i sqlite3**
 3. Create a SQLite3 database using command - **sqlite3 recipe.sqlite** (Name anything for your database)
 4. Create a table to hold recipe details with below query - 
 ```sql
