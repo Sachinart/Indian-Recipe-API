@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 
         let result = [];
 
-        var db = new sqlite3.Database(path.resolve(__dirname, '../torrent.db'));
+        var db = new sqlite3.Database(path.resolve(__dirname, '../recipe.sqlite'));
         
         db.serialize(function() {
             db.each(SQLquery, (err, row) => {
