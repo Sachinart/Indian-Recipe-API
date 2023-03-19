@@ -11,33 +11,34 @@ router.get('/', function(req, res, next) {
     } else {
 
         let query   = req.query.q;
+        if(!query.length == 0){
+            let SQLquery = 'SELECT * FROM recipe ';
 
-        let SQLquery = 'SELECT * FROM recipe ';
+            if(query){
+                SQLquery += 'WHERE RecipeName LIKE "%' + query + '%"';
+            }
 
-        if(query){
-            SQLquery += 'WHERE RecipeName LIKE "%' + query + '%"';
-        }
+            //console.log(SQLquery);
 
-        //console.log(SQLquery);
+            let result = [];
 
-        let result = [];
+            var db = new sqlite3.Database(path.resolve(__dirname, '../recipe.sqlite'));
 
-        var db = new sqlite3.Database(path.resolve(__dirname, '../recipe.sqlite'));
-        
-        db.serialize(function() {
-            db.each(SQLquery, (err, row) => {
-                if (err) {
-                    console.error(err.message);
-                } else {
-                    result.push(row); 
-                }
-            }, function(){
-                //console.log(result);
-                res.send(result);
+            db.serialize(function() {
+                db.each(SQLquery, (err, row) => {
+                    if (err) {
+                        console.error(err.message);
+                    } else {
+                        result.push(row); 
+                    }
+                }, function(){
+                    //console.log(result);
+                    res.send(result);
+                });
             });
-        });
 
-        db.close();
+            db.close();
+        }
     }
 });
 
