@@ -10,6 +10,7 @@ This API is built in NodeJS and ExpressJS to find complete recipe of most of the
 4. Create a table to hold recipe details with below query - 
 ```sql
 CREATE TABLE recipe (
+   Srno INTEGER,
    RecipeName TEXT,
    TranslatedRecipeName TEXT,
    Ingredients TEXT,
@@ -34,7 +35,11 @@ CREATE TABLE recipe (
 .import IndianFoodDataset.csv recipe
 ```
 6. You can test the data by running select queries eg. SELECT * FROM recipe LIMIT 5;
-7. Come out of SQLite3 database and run the script with command - **npm start**
+7. You may notice that the first row contain the header data. You can delete the first row using below query -
+```sql
+DELETE FROM recipe WHERE Srno in (select Srno FROM recipe LIMIT 1)
+```
+8. Come out of SQLite3 database and run the script with command - **npm start**
 Note: port is 3000 you can change from it bin/www.
 
 You can run the app on port defined in bin/www file and search for the recipe with parameter q.
