@@ -37,12 +37,11 @@ CREATE TABLE recipe (
 6. You can test the data by running select queries eg. SELECT * FROM recipe LIMIT 5;
 7. You may notice that the first row contain the header data. You can delete the first row using below query -
 ```sql
-DELETE FROM recipe WHERE Srno in (select Srno FROM recipe LIMIT 1)
+DELETE FROM recipe WHERE Srno in (SELECT Srno FROM recipe LIMIT 1)
 ```
 8. Come out of SQLite3 database and run the script with command - **npm start**
 Note: port is 3000 you can change from it bin/www.
 
 You can run the app on port defined in bin/www file and search for the recipe with parameter q.
 End URL would look like - <url>?q=tomato
-   
-Follow the blog - https://sachinartani.com/blog/restful-api-with-nodejs-and-sqlite
+
