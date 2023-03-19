@@ -31,13 +31,13 @@ CREATE TABLE recipe (
 ```sql
 .mode csv
 .header on
-.separator "|"
+.separator ","
 .import IndianFoodDataset.csv recipe
 ```
 6. You can test the data by running select queries eg. SELECT * FROM recipe LIMIT 5;
 7. You may notice that the first row contain the header data. You can delete the first row using below query -
 ```sql
-DELETE FROM recipe WHERE Srno in (SELECT Srno FROM recipe LIMIT 1)
+DELETE FROM recipe WHERE Srno in (SELECT Srno FROM recipe LIMIT 1);
 ```
 8. Come out of SQLite3 database and run the script with command - **npm start**
 Note: port is 3000 you can change from it bin/www.
